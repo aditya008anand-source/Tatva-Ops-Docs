@@ -1,4 +1,4 @@
-const Groq = require("groq-sdk");
+const { GoogleGenerativeAI } = require("@google/generative-ai");
 
 const KNOWLEDGE_BASE = `
 === TATVACARE OPERATIONAL KNOWLEDGE BASE ===
@@ -337,14 +337,10 @@ module.exports = async (req, res) => {
   if (!question || !question.trim()) return res.status(400).json({ error: "Question is required" });
 
   try {
-    const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-    const completion = await groq.chat.completions.create({
-      model: "llama3-8b-8192",
-      messages: [
-        {
-          role: "system",
-          content: `You are a helpful internal assistant for Tatvacare's operations team. Answer questions clearly and accurately based ONLY on the knowledge base below.
+    const prompt = `You are a helpful internal assistant for Tatvacare's operations team. Your job is to answer questions clearly and accurately based ONLY on the knowledge base provided below.
 
 Rules:
 - Answer ONLY from the knowledge base. Do not make up information.
@@ -355,18 +351,14 @@ Rules:
 - Do not greet or add unnecessary filler text. Just answer.
 
 KNOWLEDGE BASE:
-${KNOWLEDGE_BASE}`
-        },
-        {
-          role: "user",
-          content: question
-        }
-      ],
-      temperature: 0.3,
-      max_tokens: 1024,
-    });
+${KNOWLEDGE_BASE}
 
-    const answer = completion.choices[0].message.content;
+Question: ${question}
+
+Answer:`;
+
+    const result = await model.generateContent(prompt);
+    const answer = result.response.text();
     res.status(200).json({ answer });
   } catch (err) {
     console.error(err);
