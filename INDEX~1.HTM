@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tatva Operational Docs</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #f4f5f7;
+      min-height: 100vh;
+      color: #1a1a2e;
+    }
+
+    /* HEADER */
+    .header {
+      background: linear-gradient(135deg, #7B3FE4 0%, #9B59F5 60%, #B47EFF 100%);
+      padding: 32px 24px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+    }
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -40px;
+      width: 280px; height: 280px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 50%;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+    .logo-wrap img {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.3px;
+    }
+
+    .header h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .header p {
+      color: rgba(255,255,255,0.78);
+      font-size: 15px;
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* SEARCH */
+    .search-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .search-box {
+      display: flex;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      overflow: hidden;
+    }
+    .search-box input {
+      flex: 1;
+      padding: 18px 20px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      color: #1a1a2e;
+      background: transparent;
+    }
+    .search-box input::placeholder { color: #9a9ab0; }
+    .search-box button {
+      padding: 0 26px;
+      background: linear-gradient(135deg, #7B3FE4, #9B59F5);
+      color: #fff;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+    .search-box button:hover { opacity: 0.9; }
+    .search-hint {
+      margin-top: 12px;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+    }
+
+    /* MAIN */
+    .main { max-width: 900px; margin: 0 auto; padding: 32px 20px 60px; }
+
+    /* ANSWER BOX */
+    .answer-box {
+      display: none;
+      background: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 16px rgba(123,63,228,0.10);
+      border-left: 4px solid #7B3FE4;
+      animation: fadeIn 0.3s ease;
+    }
+    .answer-box.visible { display: block; }
+    .answer-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .answer-icon {
+      width: 32px; height: 32px;
+      background: linear-gradient(135deg, #7B3FE4, #9B59F5);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 16px;
+    }
+    .answer-label { font-weight: 700; color: #7B3FE4; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .answer-question { font-size: 14px; color: #666; margin-bottom: 16px; font-style: italic; }
+    .answer-text { font-size: 15px; line-height: 1.75; color: #2d2d3a; white-space: pre-wrap; }
+
+    /* LOADING */
+    .loading {
+      display: none;
+      text-align: center;
+      padding: 32px;
+      color: #7B3FE4;
+      font-size: 15px;
+    }
+    .loading.visible { display: block; }
+    .spinner {
+      width: 36px; height: 36px;
+      border: 3px solid #e8d8ff;
+      border-top-color: #7B3FE4;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 12px;
+    }
+
+    /* ERROR */
+    .error-box {
+      display: none;
+      background: #fff5f5;
+      border: 1px solid #fcc;
+      border-radius: 12px;
+      padding: 16px 20px;
+      color: #c0392b;
+      margin-bottom: 24px;
+      font-size: 14px;
+    }
+    .error-box.visible { display: block; }
+
+    /* CATEGORIES */
+    .section-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #9a9ab0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .categories { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    @media (max-width: 600px) { .categories { grid-template-columns: 1fr; } }
+
+    .cat-card {
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1.5px solid transparent;
+    }
+    .cat-card:hover {
+      border-color: #9B59F5;
+      box-shadow: 0 4px 20px rgba(123,63,228,0.14);
+      transform: translateY(-2px);
+    }
+    .cat-icon {
+      width: 42px; height: 42px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+    .cat-icon.purple { background: #f0e8ff; }
+    .cat-icon.blue   { background: #e8f0ff; }
+
+    .cat-title { font-size: 16px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+    .cat-items { list-style: none; }
+    .cat-items li {
+      font-size: 13px;
+      color: #666;
+      padding: 4px 0;
+      border-bottom: 1px solid #f2f2f7;
+      cursor: pointer;
+      transition: color 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .cat-items li:last-child { border-bottom: none; }
+    .cat-items li:hover { color: #7B3FE4; }
+    .cat-items li::before { content: '→'; font-size: 11px; color: #c0a0ff; flex-shrink: 0; }
+
+    /* SUGGESTIONS */
+    .suggestions {
+      margin-top: 28px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .suggestions h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 8px 14px;
+      background: #f0e8ff;
+      color: #7B3FE4;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+    }
+    .chip:hover {
+      background: #7B3FE4;
+      color: #fff;
+    }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo-wrap">
+    <img src="/public/logo.png" alt="Tatvacare Logo" onerror="this.style.display='none'"/>
+    <span class="brand-name">Tatvacare</span>
+  </div>
+  <h1>Tatva Operational Docs</h1>
+  <p>Ask any question about our operations — get instant answers from our knowledge base</p>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="e.g. What is Error 103? How to replace a sensor?" />
+      <button onclick="askQuestion()">Ask →</button>
+    </div>
+    <p class="search-hint">Press Enter to search</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+    Looking up the answer...
+  </div>
+
+  <div class="error-box" id="errorBox"></div>
+
+  <div class="answer-box" id="answerBox">
+    <div class="answer-header">
+      <div class="answer-icon">💡</div>
+      <span class="answer-label">Answer</span>
+    </div>
+    <div class="answer-question" id="answerQuestion"></div>
+    <div class="answer-text" id="answerText"></div>
+  </div>
+
+  <div class="section-title">Browse by Category</div>
+
+  <div class="categories">
+
+    <div class="cat-card">
+      <div class="cat-icon purple">📡</div>
+      <div class="cat-title">CGM (Continuous Glucose Monitor)</div>
+      <ul class="cat-items">
+        <li onclick="askDirect('What is CGM and how does it work?')">What is CGM & How it Works</li>
+        <li onclick="askDirect('How do I install the CGM app step by step?')">App Installation Guide</li>
+        <li onclick="askDirect('How do I place the CGM sensor physically on the body?')">Physical Sensor Placement</li>
+        <li onclick="askDirect('What are the do\'s and don\'ts for CGM device safety?')">Customer Do's & Don'ts</li>
+        <li onclick="askDirect('What are the CGM error codes and how to fix them?')">Errors & Troubleshooting</li>
+        <li onclick="askDirect('Why are my CGM and BGM readings different?')">BGM vs CGM Readings</li>
+        <li onclick="askDirect('What is the CGM replacement policy and eligibility?')">Replacement Policy</li>
+        <li onclick="askDirect('What are the CGM support SLAs and operating hours?')">Support SLAs & Escalation</li>
+      </ul>
+    </div>
+
+    <div class="cat-card">
+      <div class="cat-icon blue">💊</div>
+      <div class="cat-title">GLP Care Plan</div>
+      <ul class="cat-items">
+        <li onclick="askDirect('What is the GLP care plan flow from purchase to prescription?')">Care Plan Flow & Steps</li>
+        <li onclick="askDirect('How is plan and coach assigned after purchase?')">Plan & Coach Assignment</li>
+        <li onclick="askDirect('How does DR booking work in the GLP care plan?')">DR Booking Process</li>
+        <li onclick="askDirect('How is the drug dispatched in the GLP care plan?')">Prescription & Drug Dispatch</li>
+        <li onclick="askDirect('How does the GLP care plan differ from other care plans?')">GLP vs Other Care Plans</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="suggestions">
+    <h3>Common Questions</h3>
+    <div class="chips">
+      <span class="chip" onclick="askDirect('What is Error 103 and how to fix it?')">Error 103 fix</span>
+      <span class="chip" onclick="askDirect('How do I escalate a CGM replacement to Tracky?')">Escalate to Tracky</span>
+      <span class="chip" onclick="askDirect('What documents are needed for CGM replacement?')">Replacement documents</span>
+      <span class="chip" onclick="askDirect('What happens if a customer never charges mid session?')">Never charge mid-session</span>
+      <span class="chip" onclick="askDirect('What is the 10 day replacement rule?')">10-day rule</span>
+      <span class="chip" onclick="askDirect('How to do virtual CGM installation?')">Virtual installation</span>
+      <span class="chip" onclick="askDirect('What are CGM support hours?')">Support hours</span>
+      <span class="chip" onclick="askDirect('How does doctor patient mapping work in GoodFlip?')">Doctor-patient mapping</span>
+      <span class="chip" onclick="askDirect('What is the GLP step after purchase?')">GLP first step</span>
+      <span class="chip" onclick="askDirect('Can I replace a sensor after 10 days?')">Sensor after 10 days</span>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  const input = document.getElementById('searchInput');
+  const answerBox = document.getElementById('answerBox');
+  const answerText = document.getElementById('answerText');
+  const answerQuestion = document.getElementById('answerQuestion');
+  const loading = document.getElementById('loading');
+  const errorBox = document.getElementById('errorBox');
+
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') askQuestion(); });
+
+  function askDirect(q) {
+    input.value = q;
+    askQuestion();
+  }
+
+  async function askQuestion() {
+    const q = input.value.trim();
+    if (!q) return;
+
+    answerBox.classList.remove('visible');
+    errorBox.classList.remove('visible');
+    loading.classList.add('visible');
+
+    try {
+      const res = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: q })
+      });
+
+      const data = await res.json();
+      loading.classList.remove('visible');
+
+      if (data.error) {
+        errorBox.textContent = data.error;
+        errorBox.classList.add('visible');
+      } else {
+        answerQuestion.textContent = '❝ ' + q + ' ❞';
+        answerText.textContent = data.answer;
+        answerBox.classList.add('visible');
+        answerBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    } catch (err) {
+      loading.classList.remove('visible');
+      errorBox.textContent = 'Could not connect. Please check your internet and try again.';
+      errorBox.classList.add('visible');
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "tatva-ops-docs",
+  "version": "1.0.0",
+  "description": "Tatvacare Internal Operational Knowledge Base",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0"
+  }
+}
