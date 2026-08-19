@@ -362,6 +362,6 @@ Answer:`;
     res.status(200).json({ answer });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Something went wrong. Please try again." });
+    res.status(500).json({ error: err.message || "Something went wrong. Please try again." });
   }
 };
