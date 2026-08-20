@@ -559,6 +559,18 @@ module.exports = async (req, res) => {
   if (req.method === "OPTIONS") return res.status(200).end();
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
+  // ---- Shared password check ----
+  const teamPassword = process.env.TEAM_PASSWORD;
+  const providedPassword = req.headers["x-team-password"] || "";
+  if (teamPassword && providedPassword !== teamPassword) {
+    return res.status(401).json({ error: "unauthorized" });
+  }
+
+  // Login verification request — just confirms the password is correct
+  if (req.body && req.body.verify === true) {
+    return res.status(200).json({ ok: true });
+  }
+
   const { question } = req.body;
   if (!question || !question.trim()) return res.status(400).json({ error: "Question is required" });
 
