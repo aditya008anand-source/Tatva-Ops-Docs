@@ -1,4 +1,4 @@
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+// Uses Cohere API (free trial key) — no SDK needed, direct REST call
 
 const KNOWLEDGE_BASE = `
 === TATVACARE OPERATIONAL KNOWLEDGE BASE ===
@@ -477,10 +477,18 @@ module.exports = async (req, res) => {
   if (!question || !question.trim()) return res.status(400).json({ error: "Question is required" });
 
   try {
-    const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-3.6-flash" });
-
-    const prompt = `You are a helpful internal assistant for Tatvacare's operations team. Your job is to answer questions clearly and accurately based ONLY on the knowledge base provided below.
+    const response = await fetch("https://api.cohere.com/v2/chat", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${process.env.COHERE_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "command-a-03-2025",
+        messages: [
+          {
+            role: "system",
+            content: `You are a helpful internal assistant for Tatvacare's operations team. Answer questions clearly and accurately based ONLY on the knowledge base below.
 
 Rules:
 - Answer ONLY from the knowledge base. Do not make up information.
@@ -491,14 +499,24 @@ Rules:
 - Do not greet or add unnecessary filler text. Just answer.
 
 KNOWLEDGE BASE:
-${KNOWLEDGE_BASE}
+${KNOWLEDGE_BASE}`
+          },
+          {
+            role: "user",
+            content: question
+          }
+        ],
+        temperature: 0.3,
+      }),
+    });
 
-Question: ${question}
+    if (!response.ok) {
+      const errBody = await response.text();
+      throw new Error(`Cohere API error ${response.status}: ${errBody}`);
+    }
 
-Answer:`;
-
-    const result = await model.generateContent(prompt);
-    const answer = result.response.text();
+    const data = await response.json();
+    const answer = data.message.content.map(c => c.text).join("");
     res.status(200).json({ answer });
   } catch (err) {
     console.error(err);
