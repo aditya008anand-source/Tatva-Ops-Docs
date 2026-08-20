@@ -118,7 +118,7 @@
     }
 
     /* MAIN */
-    .main { max-width: 900px; margin: 0 auto; padding: 32px 20px 60px; }
+    .main { max-width: 1400px; margin: 0 auto; padding: 32px 20px 60px; }
 
     /* ANSWER BOX */
     .answer-box {
@@ -190,7 +190,8 @@
       margin-bottom: 16px;
     }
 
-    .categories { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .categories { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    @media (max-width: 1024px) { .categories { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 600px) { .categories { grid-template-columns: 1fr; } }
 
     .cat-card {
@@ -245,11 +246,11 @@
     .suggestions h3 { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 14px; }
     .chips { display: flex; flex-wrap: wrap; gap: 8px; }
     .chip {
-      padding: 8px 14px;
+      padding: 6px 11px;
       background: #f0e8ff;
       color: #7B3FE4;
       border-radius: 20px;
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 500;
       cursor: pointer;
       transition: all 0.15s;
@@ -376,16 +377,24 @@
   <div class="suggestions">
     <h3>Common Questions</h3>
     <div class="chips">
-      <span class="chip" onclick="askDirect('What is Error 103 and how to fix it?')">Error 103 fix</span>
-      <span class="chip" onclick="askDirect('How do I escalate a CGM replacement to Tracky?')">Escalate to Tracky</span>
-      <span class="chip" onclick="askDirect('What documents are needed for CGM replacement?')">Replacement documents</span>
-      <span class="chip" onclick="askDirect('What happens if a customer never charges mid session?')">Never charge mid-session</span>
-      <span class="chip" onclick="askDirect('What is the 10 day replacement rule?')">10-day rule</span>
-      <span class="chip" onclick="askDirect('How to do virtual CGM installation?')">Virtual installation</span>
-      <span class="chip" onclick="askDirect('What are CGM support hours?')">Support hours</span>
-      <span class="chip" onclick="askDirect('How does doctor patient mapping work in GoodFlip?')">Doctor-patient mapping</span>
-      <span class="chip" onclick="askDirect('What is the GLP step after purchase?')">GLP first step</span>
-      <span class="chip" onclick="askDirect('Can I replace a sensor after 10 days?')">Sensor after 10 days</span>
+      <span class="chip" onclick="askDirect('What is CGM Error 103 and how to fix it?')">CGM: Error 103 fix</span>
+      <span class="chip" onclick="askDirect('How do I escalate a CGM replacement to Tracky?')">CGM: Escalate to Tracky</span>
+      <span class="chip" onclick="askDirect('What documents are needed for CGM sensor or transmitter replacement?')">CGM: Replacement documents</span>
+      <span class="chip" onclick="askDirect('What happens if a customer charges the CGM transmitter mid session?')">CGM: Never charge mid-session</span>
+      <span class="chip" onclick="askDirect('What is the 10 day CGM replacement rule?')">CGM: 10-day rule</span>
+      <span class="chip" onclick="askDirect('How to do virtual CGM installation via Dayschedule?')">CGM: Virtual installation</span>
+      <span class="chip" onclick="askDirect('What are CGM support SLA hours?')">CGM: Support hours</span>
+      <span class="chip" onclick="askDirect('How does doctor patient mapping work in GoodFlip app?')">CGM: Doctor-patient mapping</span>
+      <span class="chip" onclick="askDirect('What is the first step after a GLP care plan purchase?')">GLP: First step after purchase</span>
+      <span class="chip" onclick="askDirect('What is the GLP plan and coach assignment timeline?')">GLP: Coach assignment SLA</span>
+      <span class="chip" onclick="askDirect('What are the GoodFlip IS team Comprehensive plan prices for Lifestyle condition?')">GoodFlip IS: Lifestyle pricing</span>
+      <span class="chip" onclick="askDirect('What are the GoodFlip IS team Comprehensive plan prices for PCOS condition?')">GoodFlip IS: PCOS pricing</span>
+      <span class="chip" onclick="askDirect('What is the difference between Doctor-Basic and Doctor-Essential plans in GoodFlip Field sales?')">GoodFlip Field: Basic vs Essential</span>
+      <span class="chip" onclick="askDirect('What are the add-on device prices for GoodFlip Field sales team?')">GoodFlip Field: Device add-ons</span>
+      <span class="chip" onclick="askDirect('What are the Niva Bupa Diabetes Management plan prices and inclusions?')">Niva Bupa: Diabetes plan</span>
+      <span class="chip" onclick="askDirect('What additional features are included in all Niva Bupa care plans?')">Niva Bupa: Common features</span>
+      <span class="chip" onclick="askDirect('What are the Niva Bupa PCOS plan prices and tests included?')">Niva Bupa: PCOS plan</span>
+      <span class="chip" onclick="askDirect('What tests are included in the GoodFlip Fatty Liver care plan IS team?')">GoodFlip IS: Fatty Liver tests</span>
     </div>
   </div>
 
