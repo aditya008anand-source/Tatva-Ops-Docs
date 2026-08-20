@@ -465,6 +465,92 @@ KIDNEY MANAGEMENT PROGRAM (CKD):
 Details to be added. Please check with your team lead or operations manager for MySaathi care plan information.
 `;
 
+// ============ RAG-LITE: SECTION RETRIEVAL ============
+// Splits the knowledge base into sections and picks only the most
+// relevant ones for each question — smaller prompt = faster answers.
+
+const SECTIONS = KNOWLEDGE_BASE.split(/(?=--- SECTION:)/g)
+  .map(s => s.trim())
+  .filter(s => s.startsWith("--- SECTION:"))
+  .map(s => {
+    const titleMatch = s.match(/--- SECTION:\s*(.+?)\s*---/);
+    return { title: titleMatch ? titleMatch[1] : "", text: s };
+  });
+
+const STOPWORDS = new Set(["the","a","an","is","are","was","were","what","which","who","whom","how","why","when","where","do","does","did","can","could","will","would","shall","should","in","on","at","for","of","to","and","or","if","it","its","my","our","your","their","this","that","these","those","with","from","by","about","as","be","been","being","i","we","you","they","he","she","me","us","them","have","has","had","not","no","yes","please","tell","give","me","list","show","explain"]);
+
+// Domain synonyms — maps question words to words that appear in sections
+const SYNONYMS = {
+  price: ["mrp", "pricing", "cost", "₹", "discount", "slashed", "floor", "selling"],
+  pricing: ["mrp", "price", "cost", "₹", "discount", "slashed", "floor", "selling"],
+  cost: ["mrp", "price", "pricing", "₹"],
+  replace: ["replacement"],
+  replacement: ["replace", "policy", "10 day", "workflow"],
+  error: ["errors", "troubleshooting", "fix"],
+  install: ["installation", "placement"],
+  installation: ["install", "placement", "app"],
+  sensor: ["cgm", "transmitter"],
+  transmitter: ["cgm", "sensor", "charging"],
+  coach: ["assignment", "plan"],
+  doctor: ["dr", "consultation", "specialist"],
+  dr: ["doctor", "consultation", "booking"],
+  drug: ["dispatch", "prescription", "glp"],
+  weight: ["weightloss", "glp", "obesity"],
+  sugar: ["glucose", "reading", "bgm", "cgm"],
+  glucose: ["sugar", "reading", "cgm", "bgm"],
+  reading: ["bgm", "cgm", "glucose", "difference"],
+  field: ["field sales"],
+  is: ["inside sales"],
+  niva: ["bupa"],
+  bupa: ["niva"],
+  goodflip: ["gf", "care plans"],
+  mysaathi: ["saathi"],
+  sla: ["support", "hours", "tat", "escalation"],
+  hours: ["sla", "support", "operating"],
+  test: ["tests", "diagnostics", "included"],
+  tests: ["test", "diagnostics", "included"],
+};
+
+function scoreSection(section, questionWords) {
+  const textLower = section.text.toLowerCase();
+  const titleLower = section.title.toLowerCase();
+  let score = 0;
+  for (const word of questionWords) {
+    // Title matches weigh heavily
+    if (titleLower.includes(word)) score += 10;
+    // Count occurrences in body (capped to avoid one word dominating)
+    const count = (textLower.match(new RegExp(word.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "g")) || []).length;
+    score += Math.min(count, 5);
+    // Synonym boost
+    const syns = SYNONYMS[word];
+    if (syns) {
+      for (const syn of syns) {
+        if (titleLower.includes(syn)) score += 5;
+        if (textLower.includes(syn)) score += 1;
+      }
+    }
+  }
+  return score;
+}
+
+function retrieveRelevantSections(question, topN = 3) {
+  const questionWords = question
+    .toLowerCase()
+    .replace(/[^\w\s]/g, " ")
+    .split(/\s+/)
+    .filter(w => w.length > 1 && !STOPWORDS.has(w));
+
+  const scored = SECTIONS.map(s => ({ ...s, score: scoreSection(s, questionWords) }))
+    .sort((a, b) => b.score - a.score);
+
+  // If nothing matched at all, fall back to full knowledge base
+  if (!scored.length || scored[0].score === 0) {
+    return KNOWLEDGE_BASE;
+  }
+
+  return scored.slice(0, topN).map(s => s.text).join("\n\n");
+}
+
 module.exports = async (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
@@ -477,6 +563,8 @@ module.exports = async (req, res) => {
   if (!question || !question.trim()) return res.status(400).json({ error: "Question is required" });
 
   try {
+    const relevantContext = retrieveRelevantSections(question, 3);
+
     const response = await fetch("https://api.cohere.com/v2/chat", {
       method: "POST",
       headers: {
@@ -484,22 +572,22 @@ module.exports = async (req, res) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        model: "command-a-03-2025",
+        model: "command-r7b-12-2024",
         messages: [
           {
             role: "system",
-            content: `You are a helpful internal assistant for Tatvacare's operations team. Answer questions clearly and accurately based ONLY on the knowledge base below.
+            content: `You are a helpful internal assistant for Tatvacare's operations team. Answer questions clearly and accurately based ONLY on the knowledge base excerpts below.
 
 Rules:
-- Answer ONLY from the knowledge base. Do not make up information.
-- If the answer is not in the knowledge base, respond with: "I don't have information on that. Please check with your team lead or operations manager."
+- Answer ONLY from the knowledge base excerpts. Do not make up information.
+- If the answer is not in the excerpts, respond with: "I don't have information on that. Please check with your team lead or operations manager."
 - Keep answers concise, clear, and actionable.
 - Use numbered steps when explaining a process.
 - Highlight important warnings or critical rules clearly.
 - Do not greet or add unnecessary filler text. Just answer.
 
-KNOWLEDGE BASE:
-${KNOWLEDGE_BASE}`
+KNOWLEDGE BASE EXCERPTS:
+${relevantContext}`
           },
           {
             role: "user",
