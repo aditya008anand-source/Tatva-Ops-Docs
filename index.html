@@ -263,9 +263,76 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* LOGIN OVERLAY */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(135deg, #7B3FE4 0%, #9B59F5 60%, #B47EFF 100%);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .login-overlay.hidden { display: none; }
+    .login-card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 36px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .login-card img { width: 56px; height: 56px; border-radius: 14px; margin-bottom: 16px; }
+    .login-card h2 { font-size: 22px; color: #1a1a2e; margin-bottom: 6px; }
+    .login-card p { font-size: 14px; color: #888; margin-bottom: 24px; }
+    .login-card input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #e0e0ea;
+      border-radius: 12px;
+      font-size: 15px;
+      outline: none;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .login-card input:focus { border-color: #7B3FE4; }
+    .login-card button {
+      width: 100%;
+      padding: 14px;
+      background: linear-gradient(135deg, #7B3FE4, #9B59F5);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .login-card button:hover { opacity: 0.9; }
+    .login-error {
+      color: #c0392b;
+      font-size: 13px;
+      margin-top: 12px;
+      display: none;
+    }
+    .login-error.visible { display: block; }
   </style>
 </head>
 <body>
+
+<div class="login-overlay" id="loginOverlay">
+  <div class="login-card">
+    <img src="/public/logo.png" alt="Tatvacare" onerror="this.style.display='none'"/>
+    <h2>Tatva Operational Docs</h2>
+    <p>Enter the team password to continue</p>
+    <input type="password" id="loginPassword" placeholder="Team password" />
+    <button onclick="doLogin()">Enter →</button>
+    <div class="login-error" id="loginError">Incorrect password. Please try again.</div>
+  </div>
+</div>
 
 <div class="header">
   <div class="logo-wrap">
@@ -408,6 +475,51 @@
   const loading = document.getElementById('loading');
   const errorBox = document.getElementById('errorBox');
 
+  // ---- LOGIN ----
+  const loginOverlay = document.getElementById('loginOverlay');
+  const loginPassword = document.getElementById('loginPassword');
+  const loginError = document.getElementById('loginError');
+  const PW_KEY = 'tatva_team_pw';
+
+  function getSavedPassword() {
+    try { return localStorage.getItem(PW_KEY) || ''; } catch(e) { return ''; }
+  }
+
+  async function verifyPassword(pw) {
+    try {
+      const res = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Team-Password': pw },
+        body: JSON.stringify({ verify: true })
+      });
+      return res.ok;
+    } catch(e) { return false; }
+  }
+
+  async function doLogin() {
+    const pw = loginPassword.value.trim();
+    if (!pw) return;
+    loginError.classList.remove('visible');
+    const ok = await verifyPassword(pw);
+    if (ok) {
+      try { localStorage.setItem(PW_KEY, pw); } catch(e) {}
+      loginOverlay.classList.add('hidden');
+    } else {
+      loginError.classList.add('visible');
+      loginPassword.value = '';
+    }
+  }
+
+  loginPassword.addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+  // Auto-login if password already saved
+  (async () => {
+    const saved = getSavedPassword();
+    if (saved && await verifyPassword(saved)) {
+      loginOverlay.classList.add('hidden');
+    }
+  })();
+
   input.addEventListener('keydown', e => { if (e.key === 'Enter') askQuestion(); });
 
   function askDirect(q) {
@@ -426,12 +538,18 @@
     try {
       const res = await fetch('/api/ask', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-Team-Password': getSavedPassword() },
         body: JSON.stringify({ question: q })
       });
 
       const data = await res.json();
       loading.classList.remove('visible');
+
+      if (res.status === 401) {
+        try { localStorage.removeItem(PW_KEY); } catch(e) {}
+        loginOverlay.classList.remove('hidden');
+        return;
+      }
 
       if (data.error) {
         errorBox.textContent = data.error;
