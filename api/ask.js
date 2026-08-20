@@ -323,6 +323,146 @@ GLP vs Other Care Plans:
 - GLP care plan includes GLP medicine (weight loss injections like Ozempic, Monjaro).
 - Other care plans (non-GLP) follow the same steps but do not include GLP medicine prescriptions.
 - All other products (nutraceuticals, diagnostics) are the same.
+
+--- SECTION: GOODFLIP CARE PLANS — INSIDE SALES (IS) TEAM PRICING ---
+Plan Type: Comprehensive. Pricing at MRP / 10% Discount / 15% Discount / 20% Discount.
+All plans include: Diet Services, Physio Services, Wellness, BCA Device. CGM is Optional unless stated.
+
+LIFESTYLE CONDITION:
+- 3 Months: MRP ₹9,999 | 10%: ₹8,999 | 15%: ₹8,499 | 20%: ₹7,999 | Diagnostics: 1 Time | Doctor: Internal Medicine/MD
+  Tests: Glucose Fasting, HOMA-IR, Liver Profile, Lipid Profile, TFTs, Apolipoprotein B, CBC/ESR
+- 6 Months: MRP ₹13,999 | 10%: ₹12,599 | 15%: ₹11,899 | 20%: ₹11,199 | Diagnostics: 2 Times
+  Tests: Round 1 same as above + Round 2: CBC/ESR, TFT, LFT, HBA1c, KFT
+- 12 Months: MRP ₹19,999 | 10%: ₹17,999 | 15%: ₹16,999 | 20%: ₹15,999 | Diagnostics: 3 Times
+  Tests: Round 1 + Round 2 + Round 3: CBC/ESR, TFT, LFT, HBA1c, KFT
+
+FATTY LIVER CONDITION:
+- 3 Months: MRP ₹9,999 | 10%: ₹8,999 | 15%: ₹8,499 | 20%: ₹7,999 | Diagnostics: 1 Time | Doctor: Gastroenterologist
+  Tests: LFT, HbA1c, Lipid Profile, Apolipoprotein B, CBC/ESR, RFT, Vitamin D
+- 6 Months: MRP ₹13,999 | 10%: ₹12,599 | 15%: ₹11,899 | 20%: ₹11,199 | Diagnostics: 2 Times
+  Tests: Round 1 same as above + Round 2: CBC/ESR, Lipid, LFT, HBA1c, KFT
+- 12 Months: MRP ₹19,999 | 10%: ₹17,999 | 15%: ₹16,999 | 20%: ₹15,999 | Diagnostics: 3 Times
+  Tests: Round 1 + Round 2 + Round 3: CBC/ESR, Lipid, LFT, HBA1c, KFT
+
+DIABETES CONDITION:
+- 3 Months: MRP ₹9,999 | 10%: ₹8,999 | 15%: ₹8,499 | 20%: ₹7,999 | Diagnostics: 1 Time | Doctor: Endocrinologist
+  Tests: Glucose Fasting, HOMA-IR, HbA1c, Liver Profile, Lipid Profile, Kidney Profile, Apolipoprotein B
+- 6 Months: MRP ₹13,999 | 10%: ₹12,599 | 15%: ₹11,899 | 20%: ₹11,199 | Diagnostics: 2 Times
+  Tests: Round 1 same as above + Round 2: HBA1c, Lipid, LFT, FBS, KFT
+- 12 Months: MRP ₹19,999 | 10%: ₹17,999 | 15%: ₹16,999 | 20%: ₹15,999 | Diagnostics: 3 Times
+  Tests: Round 1 + Round 2 + Round 3: HBA1c, Lipid, LFT, FBS, KFT
+
+PCOS CONDITION:
+- 3 Months: MRP ₹11,499 | 10%: ₹10,349 | 15%: ₹9,774 | 20%: ₹9,199 | Diagnostics: 1 Time | Doctor: Optional
+  Tests: HOMA-IR, HbA1c, RFT, Lipid Profile, CBC/ESR, Serum FSH, Serum LH, Prolactin, LH/FSH Ratio, Total Testosterone, DHEA-S, Thyroid Profile
+- 6 Months: MRP ₹14,499 | 10%: ₹13,049 | 15%: ₹12,324 | 20%: ₹11,599 | Diagnostics: 2 Times
+  Tests: Round 1 same as above + Round 2: CBC/ESR, Lipid, LFT, HBA1c, KFT
+- 12 Months: MRP ₹21,499 | 10%: ₹19,349 | 15%: ₹18,274 | 20%: ₹17,199 | Diagnostics: 3 Times
+  Tests: Round 1 + Round 2 + Round 3: CBC/ESR, Lipid, LFT, HBA1c, KFT
+
+IS TEAM ADD-ON — Individual BCA Device: MRP ₹1,499 | 10%: ₹1,349 | 15%: ₹1,274 | 20%: ₹1,199
+
+--- SECTION: GOODFLIP CARE PLANS — FIELD SALES TEAM PRICING ---
+Plan Types: Doctor-Basic (no CGM included) and Doctor-Essential (CGM optional).
+Pricing at MRP / Slashed Price / Floor Price.
+All plans include: Diet Services, Physio Services, Wellness, BCA Device, Diagnostics.
+
+LIFESTYLE — Doctor-Basic:
+- 3 Months: MRP ₹8,999 | Slashed ₹5,499 | Floor ₹4,999 | CGM: No
+- 6 Months: MRP ₹11,999 | Slashed ₹7,499 | Floor ₹6,999 | CGM: No
+- 12 Months: MRP ₹14,999 | Slashed ₹9,999 | Floor ₹8,999 | CGM: No
+Tests: Glucose Fasting, HOMA-IR, Liver Profile, Lipid Profile, TFTs, Apolipoprotein B, CBC/ESR (+ repeat rounds for 6/12 months)
+
+LIFESTYLE — Doctor-Essential:
+- 3 Months: MRP ₹8,999 | Slashed ₹5,499 | Floor ₹4,999 | CGM: Optional
+- 6 Months: MRP ₹11,999 | Slashed ₹7,499 | Floor ₹6,999 | CGM: Optional
+- 12 Months: MRP ₹14,999 | Slashed ₹9,999 | Floor ₹8,999 | CGM: Optional
+Tests: Same as Doctor-Basic Lifestyle
+
+FATTY LIVER — Doctor-Basic:
+- 3 Months: MRP ₹8,999 | Slashed ₹5,499 | Floor ₹4,999 | CGM: No
+- 6 Months: MRP ₹11,999 | Slashed ₹7,499 | Floor ₹6,999 | CGM: No
+- 12 Months: MRP ₹14,999 | Slashed ₹9,999 | Floor ₹8,999 | CGM: No
+Tests: LFT, HbA1c, Lipid Profile, Apolipoprotein B, CBC/ESR, RFT, Vitamin D (+ repeat rounds)
+
+FATTY LIVER — Doctor-Essential:
+- 3 Months: MRP ₹8,999 | Slashed ₹5,499 | Floor ₹4,999 | CGM: Optional
+- 6 Months: MRP ₹11,999 | Slashed ₹7,499 | Floor ₹6,999 | CGM: Optional
+- 12 Months: MRP ₹14,999 | Slashed ₹9,999 | Floor ₹8,999 | CGM: Optional
+
+DIABETES — Doctor-Basic:
+- 3 Months: MRP ₹8,999 | Slashed ₹5,499 | Floor ₹4,999 | CGM: No
+- 6 Months: MRP ₹11,999 | Slashed ₹7,499 | Floor ₹6,999 | CGM: No
+- 12 Months: MRP ₹14,999 | Slashed ₹9,999 | Floor ₹8,999 | CGM: No
+Tests: Glucose Fasting, HOMA-IR, HbA1c, Liver Profile, Lipid Profile, Kidney Profile, Apolipoprotein B (+ repeat rounds)
+
+DIABETES — Doctor-Essential:
+- 3 Months: MRP ₹8,999 | Slashed ₹5,499 | Floor ₹4,999 | CGM: Optional
+- 6 Months: MRP ₹11,999 | Slashed ₹7,499 | Floor ₹6,999 | CGM: Optional
+- 12 Months: MRP ₹14,999 | Slashed ₹9,999 | Floor ₹8,999 | CGM: Optional
+
+PCOS — Doctor-Essential only:
+- 3 Months: MRP ₹11,999 | Slashed ₹7,999 | Floor ₹7,499 | CGM: Optional
+- 6 Months: MRP ₹15,999 | Slashed ₹10,499 | Floor ₹9,999 | CGM: Optional
+- 12 Months: MRP ₹22,999 | Slashed ₹14,999 | Floor ₹13,999 | CGM: Optional
+Tests: HOMA-IR, HbA1c, RFT, Lipid Profile, CBC/ESR, Serum FSH, LH, Prolactin, LH/FSH Ratio, Total Testosterone, DHEA-S, Thyroid Profile (+ repeat rounds)
+
+FIELD TEAM ADD-ONS:
+- Individual BCA Device: MRP ₹2,999 | Slashed ₹1,999 | Floor ₹1,199
+- CGM (Transmitter + Sensor): MRP ₹7,999 | Slashed ₹5,200 | Floor ₹4,500
+
+--- SECTION: NIVA BUPA CARE PLANS ---
+All plans are Comprehensive and visible on app. Include: Nutritionist, Physiotherapist, Psychologist, General Physician (Unlimited), Chat Support (Unlimited), Specialist consultations, Blood Tests, Optional devices.
+Additional features for all plans: 24x7 Help Desk, Workout Videos, Wellness/Meditation Content, Educational Webinars, HRA (Health Risk Assessment), Smart Health Report, Discounted Medication & Diagnostics.
+
+DIABETES MANAGEMENT:
+- Specialist: Diabetologist | Super-specialist: Ophthalmologist/Podiatrist/Nephrologist
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | 3 Nutritionist + 1 Physio + 1 Psychologist + 1 Specialist | Tests: HbA1c, FBS, Creatinine
+- 6 Months: MRP ₹9,999 | Selling ₹4,799 | 6 Nutritionist + 2 Physio + 2 Psychologist + 2 Specialist | Tests: HbA1c, FBS, Creatinine
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | 12 Nutritionist + 4 Physio + 4 Psychologist + 4 Specialist | Tests: HbA1c, FBS, Creatinine (2 times)
+Discounted Devices: Smart Scale MRP ₹1,999/Slashed ₹1,000/Last ₹999 | CGM MRP ₹5,200/Slashed ₹4,500/Last ₹3,950
+
+HYPERTENSION/CHOLESTEROL MANAGEMENT:
+- Specialist: Cardiologist | Super-specialist: Endocrinologist/Nephrologist
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: Lipid Profile, Electrolyte Panel
+- 6 Months: MRP ₹9,999 | Selling ₹4,799 | Tests: Lipid Profile, Electrolyte Panel
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Lipid Profile, Electrolyte Panel (2 times)
+
+ASTHMA MANAGEMENT:
+- Specialist: Pulmonologist | Super-specialist: Allergist
+- 3 Months: MRP ₹5,599 | Selling ₹2,799 | Tests: Spirometry, Chest X-ray
+- 6 Months: MRP ₹11,199 | Selling ₹4,599 | Tests: Spirometry, Chest X-ray
+- 12 Months: MRP ₹22,399 | Selling ₹7,999 | Tests: Spirometry, Chest X-ray (2 times)
+
+PCOS:
+- Specialist: Gynecologist | Super-specialist: Endocrinologist/Dermatologist
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: Hormonal Profile (LH, FSH, Prolactin), TSH
+- 6 Months: MRP ₹9,999 | Selling ₹4,799 | Tests: Same
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
+
+WEIGHT LOSS:
+- Specialist: Endocrinologist | Super-specialist: As per requirement
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: TSH, Lipid Profile, FBS
+- 6 Months: MRP ₹9,999 | Selling ₹4,799 | Tests: Same
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
+
+THYROID CONTROL PROGRAM:
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: T3, T4, TSH, Lipid Profile
+- 6 Months: MRP ₹9,999 | Selling ₹4,699 | Tests: Same
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
+
+LIVER MANAGEMENT PROGRAM:
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: Lipid Profile, LFT
+- 6 Months: MRP ₹9,999 | Selling ₹4,699 | Tests: Same
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
+
+KIDNEY MANAGEMENT PROGRAM (CKD):
+- 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: KFT, RUA, eGFR, Albuminuria, Creatinine
+- 6 Months: MRP ₹9,999 | Selling ₹4,699 | Tests: Same
+- 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
+
+--- SECTION: MYSAATHI CARE PLAN ---
+Details to be added. Please check with your team lead or operations manager for MySaathi care plan information.
 `;
 
 module.exports = async (req, res) => {
@@ -338,7 +478,7 @@ module.exports = async (req, res) => {
 
   try {
     const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-    const model = genAI.getGenerativeModel({ model: "gemini-3.6-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
     const prompt = `You are a helpful internal assistant for Tatvacare's operations team. Your job is to answer questions clearly and accurately based ONLY on the knowledge base provided below.
 
