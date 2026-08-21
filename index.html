@@ -319,6 +319,101 @@
       display: none;
     }
     .login-error.visible { display: block; }
+
+    /* HAMBURGER MENU */
+    .menu-btn {
+      position: absolute;
+      top: 24px;
+      left: 24px;
+      z-index: 10;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,0.15);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: background 0.2s;
+    }
+    .menu-btn:hover { background: rgba(255,255,255,0.28); }
+    .menu-btn span {
+      display: block;
+      width: 20px;
+      height: 2.5px;
+      background: #fff;
+      border-radius: 2px;
+    }
+
+    .drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s;
+    }
+    .drawer-backdrop.open { opacity: 1; pointer-events: auto; }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: -340px;
+      width: 320px;
+      max-width: 85vw;
+      height: 100vh;
+      background: #fff;
+      z-index: 600;
+      transition: left 0.28s ease;
+      box-shadow: 4px 0 24px rgba(0,0,0,0.15);
+      overflow-y: auto;
+    }
+    .drawer.open { left: 0; }
+    .drawer-header {
+      background: linear-gradient(135deg, #7B3FE4, #9B59F5);
+      padding: 20px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .drawer-header h3 { font-size: 16px; font-weight: 700; }
+    .drawer-close {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+    }
+    .drawer-section { padding: 14px 20px 4px; }
+    .drawer-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #9a9ab0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .doc-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #2d2d3a;
+      font-size: 13.5px;
+      transition: background 0.15s;
+      margin-bottom: 2px;
+    }
+    .doc-link:hover { background: #f0e8ff; color: #7B3FE4; }
+    .doc-icon { font-size: 16px; flex-shrink: 0; }
   </style>
 </head>
 <body>
@@ -334,7 +429,42 @@
   </div>
 </div>
 
+<div class="drawer-backdrop" id="drawerBackdrop" onclick="toggleDrawer(false)"></div>
+<div class="drawer" id="drawer">
+  <div class="drawer-header">
+    <h3>📂 Documents</h3>
+    <button class="drawer-close" onclick="toggleDrawer(false)">×</button>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">CGM</div>
+    <a class="doc-link" href="/public/docs/CGM-Complete-Training.pptx" target="_blank"><span class="doc-icon">📊</span>CGM Complete Training</a>
+    <a class="doc-link" href="/public/docs/GlucoLive-CGM-SOP-Replacement-Policy.pdf" target="_blank"><span class="doc-icon">📄</span>GlucoLive CGM SOP & Replacement Policy</a>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">GLP Care Plan</div>
+    <a class="doc-link" href="/public/docs/GLP-Onboarding-Dispatch-Flow.png" target="_blank"><span class="doc-icon">🖼️</span>GLP Onboarding & Dispatch Flow</a>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">GoodFlip Care Plans</div>
+    <a class="doc-link" href="/public/docs/GoodFlip-Care-Plan-SOP.docx" target="_blank"><span class="doc-icon">📝</span>GoodFlip Care Plan SOP</a>
+    <a class="doc-link" href="/public/docs/GoodFlip-Care-Plans-IS-Team-Pricing.csv" target="_blank"><span class="doc-icon">📈</span>IS Team Pricing</a>
+    <a class="doc-link" href="/public/docs/GoodFlip-Care-Plans-Field-Team-Pricing.csv" target="_blank"><span class="doc-icon">📈</span>Field Team Pricing</a>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">Niva Bupa</div>
+    <a class="doc-link" href="/public/docs/Niva-Bupa-Ops-SOP.pptx" target="_blank"><span class="doc-icon">📊</span>Niva Bupa Ops SOP</a>
+    <a class="doc-link" href="/public/docs/Niva-Bupa-Care-Plans-Pricing.csv" target="_blank"><span class="doc-icon">📈</span>Care Plans Pricing</a>
+  </div>
+  <div class="drawer-section">
+    <div class="drawer-section-title">MySaathi</div>
+    <a class="doc-link" href="/public/docs/MySaathi-Semaglutide-Operational-Plan.pdf" target="_blank"><span class="doc-icon">📄</span>Semaglutide Operational Plan</a>
+  </div>
+</div>
+
 <div class="header">
+  <button class="menu-btn" onclick="toggleDrawer(true)" title="View Documents">
+    <span></span><span></span><span></span>
+  </button>
   <div class="logo-wrap">
     <img src="/public/logo.png" alt="Tatvacare Logo" onerror="this.style.display='none'"/>
     <span class="brand-name">Tatvacare</span>
@@ -492,6 +622,12 @@
   const answerQuestion = document.getElementById('answerQuestion');
   const loading = document.getElementById('loading');
   const errorBox = document.getElementById('errorBox');
+
+  // ---- DOCUMENTS DRAWER ----
+  function toggleDrawer(open) {
+    document.getElementById('drawer').classList.toggle('open', open);
+    document.getElementById('drawerBackdrop').classList.toggle('open', open);
+  }
 
   // ---- LOGIN ----
   const loginOverlay = document.getElementById('loginOverlay');
