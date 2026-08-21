@@ -324,6 +324,35 @@ GLP vs Other Care Plans:
 - Other care plans (non-GLP) follow the same steps but do not include GLP medicine prescriptions.
 - All other products (nutraceuticals, diagnostics) are the same.
 
+--- SECTION: GLP CARE PLAN PRICING (ONLINE CONSULTATION) ---
+GLP Care Plan pricing for Online Consultation, available in 4, 8, and 12 month durations:
+
+4 MONTHS PLAN — MRP ₹21,499:
+- Doctor Consults: 5
+- Diagnostics: 2
+- Coach: Unlimited
+- Drug (first 4 months): Semaglyn
+- Supplement: Optional
+- Devices: BCA, CGM (Optional)
+
+8 MONTHS PLAN — MRP ₹31,999:
+- Doctor Consults: 9
+- Diagnostics: 3
+- Coach: Unlimited
+- Drug (first 4 months): Semaglyn
+- Supplement: Optional
+- Devices: BCA, CGM (Optional)
+
+12 MONTHS PLAN — MRP ₹40,999:
+- Doctor Consults: 13
+- Diagnostics: 4
+- Coach: Unlimited
+- Drug (first 4 months): Semaglyn
+- Supplement: Optional
+- Devices: BCA, CGM (Optional)
+
+Note: Drug (Semaglyn) is provided for the first 4 months in all plan durations. Coach sessions are unlimited in all plans.
+
 --- SECTION: GOODFLIP CARE PLANS — INSIDE SALES (IS) TEAM PRICING ---
 Plan Type: Comprehensive. Pricing at MRP / 10% Discount / 15% Discount / 20% Discount.
 All plans include: Diet Services, Physio Services, Wellness, BCA Device. CGM is Optional unless stated.
@@ -460,6 +489,93 @@ KIDNEY MANAGEMENT PROGRAM (CKD):
 - 3 Months: MRP ₹4,999 | Selling ₹2,999 | Tests: KFT, RUA, eGFR, Albuminuria, Creatinine
 - 6 Months: MRP ₹9,999 | Selling ₹4,699 | Tests: Same
 - 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
+
+--- SECTION: GOODFLIP CARE PLAN SOP — ONBOARDING & HANDOVER CALL ---
+SOP applies to both IS and Field sales teams. Prepared by Aditya Anand (Senior Operations Executive), Approved by Nikhil Ganji (Director Operations).
+
+KEY ABBREVIATIONS: BCA = Body Composition Analyser | CGM = Continuous Glucose Monitor | DX = Diagnostics | FRAPE = Internal lead/task management system routing onboarding tasks to Operations | RM = Relationship Manager | GP = General Physician.
+
+INITIAL PATIENT ONBOARDING FLOW:
+1. Patient purchases the care plan.
+2. Sales team fills the sales form: patient name, contact, age, address, medical condition, preferred session timings, preferred language, payment details, device details.
+3. A task is created for Operations team through FRAPE.
+4. Operations team: assigns plan through Retool, books the lab test included in the plan, schedules handover call through DaySchedule (for IS team sales), assigns health coach based on language and time preference, manages device delivery.
+5. RM: completes the handover call, supports doctor consultation booking if patient can't book, resolves queries throughout the journey.
+
+HANDOVER CALL PROCESS (Sales → Care Team conference call):
+1. Sale is closed by Sales team.
+2. Sales calls the Care Team FIRST and briefs them on the customer (name, city, plan, duration, condition, goal, add-ons, concerns).
+3. Sales dials the customer and merges the Care Team into a conference call.
+4. Sales introduces both sides (60–90 seconds), formally hands over, and disconnects.
+5. Care Team runs the full handover call with the customer.
+GOLDEN RULE: Never put the customer on hold waiting for the Care Team — brief first, then dial.
+
+SALES EXECUTIVE RULES:
+- Never merge customer before Care Team confirms availability.
+- Do not re-sell or re-explain the plan after merge — that's the Care Team's job.
+- Never say "someone will call you" — say "this is your Care Team."
+- Say goodbye clearly and drop off.
+
+IF CUSTOMER NOT REACHABLE: After 2 failed call attempts, Sales sends the standard WhatsApp onboarding message (with coach booking link, Metabolic Score step, and onepager.goodflip.in), then retries the handover call.
+
+RM HANDOVER CALL SCRIPT (target 6–8 minutes, after Sales disconnects):
+1. Take charge — introduce yourself, ask for 6–7 minutes.
+2. App download — Goodflip app from Play Store/App Store, login with same mobile number. MUST be completed during the call.
+3. Metabolic Score — 2-minute health questionnaire, the baseline the coach builds the plan around. Complete before first coach session.
+4. Coach slot booking — Program Information page → Diet Coach → book immediately.
+5. Diagnostics booking (only if DX in plan) — home sample collection, fasting 8–10 hours (water allowed), early morning slots best. Confirm delivery address and pincode on the call.
+6. Doctor consultation (all IS plans) — specialist audio consultation, happens AFTER reports are in, booked via app.
+7. Product delivery expectations (only what's in plan): Nutraceuticals 4–5 days, CGM 5–6 days (14-day sensor on upper arm), BCA 5–7 days.
+8. Semaglutide/GLP-1 journey (only if drug in plan): Sequence is Diagnostics → Doctor Consultation → Prescription → Order → Cold-chain dispatch. Refrigerate on arrival (NOT freezer). Mild nausea/reduced appetite common early. Free follow-ups for 7 days after every consultation. NEVER let the customer believe the drug ships immediately.
+9. Escalation expectation — Care Team (not sales) is the point of contact. WhatsApp +91-8511975757, Email support@goodflip.in. Save number as 'Goodflip'.
+10. Close with recap of pending steps.
+
+QUICK REFERENCE:
+- Customer care WhatsApp: +91-8511975757 | Email: support@goodflip.in
+- Coach session booking link: https://link.goodflip.in/d/YzN6f1CPLZ
+- Onboarding steps page: onepager.goodflip.in
+- Nutraceutical delivery: 4–5 days | CGM: 5–6 days | BCA: 5–7 days (from plan assignment)
+- Doctor consultation: Audio, booked in-app after diagnostic reports
+- Post-consultation follow-ups: Free for 7 days
+- GLP-1 drug dispatch: Only after diagnostics + consultation + prescription
+
+--- SECTION: GOODFLIP CARE PLAN SOP — JOURNEY, COACHES, DOCTOR, DIAGNOSTICS & SUPPORT ---
+PLAN DURATIONS: 3 months, 6 months, and 12 months.
+
+HANDOVER CALL BOOKING:
+- Patient can book via link shared by sales team (Field).
+- For IS team sales: handover call is booked at time of plan assignment.
+- Patient receives joining link on WhatsApp, SMS, and email.
+- RM explains program, app usage, and confirms preferred date/time for coach and doctor consultations.
+
+COACH CONSULTATIONS:
+- Nutritionist: 2 sessions per month. Progressive diet plan per patient requirement and food preferences. Tracks adherence and progress.
+- Physiotherapist: 2 sessions per month. Live video training sessions. Shares recorded sessions and exercise videos. Tracks adherence.
+- CBT: 1 session per month. Motivates patient toward adherence and lifestyle improvement.
+
+DOCTOR CONSULTATION:
+- 3-month plan: 1 consultation | 6-month plan: 2 consultations.
+- Booked by patient directly through the app.
+- If patient can't book: patient contacts RM → RM shares request with Operations → Operations books on patient's behalf.
+- Preferred timing: 3–4 days after diagnostics are completed.
+
+DIAGNOSTICS:
+- 3-month plan: 1 lab test | 6-month plan: 2 lab tests | 12-month plan: 3 lab tests.
+- Booked at time of plan assignment by Operations team, as per assigned plan and packages.
+
+DEVICES:
+- Patient can opt for CGM and BCA devices with their plan.
+- Dispatched by Operations from nearest available warehouse.
+- Patient receives a delivery tracking link.
+
+SUPPORT CHANNELS:
+- WhatsApp chat support (CS team)
+- Call support: working hours 10:00 AM – 7:00 PM
+- Email: support@goodflip.in (creates Freshdesk ticket)
+
+TROUBLESHOOTING SLAs:
+- Non-technical issues: resolution within 24 hours.
+- Technical issues: resolution within 48 hours.
 
 --- SECTION: NIVA BUPA OPS SOP — PATIENT PROCESS FLOWS ---
 SOP for handling Niva Bupa patients across Health Partner/RM, Nutrition, Physio, and Mental Wellness workflows.
