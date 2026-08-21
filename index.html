@@ -552,6 +552,7 @@
     answerBox.classList.remove('visible');
     errorBox.classList.remove('visible');
     loading.classList.add('visible');
+    loading.scrollIntoView({ behavior: 'smooth', block: 'center' });
 
     try {
       const res = await fetch('/api/ask', {
