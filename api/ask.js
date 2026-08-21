@@ -461,8 +461,108 @@ KIDNEY MANAGEMENT PROGRAM (CKD):
 - 6 Months: MRP ₹9,999 | Selling ₹4,699 | Tests: Same
 - 12 Months: MRP ₹19,999 | Selling ₹7,499 | Tests: Same (2 times)
 
---- SECTION: MYSAATHI CARE PLAN ---
-Details to be added. Please check with your team lead or operations manager for MySaathi care plan information.
+--- SECTION: NIVA BUPA OPS SOP — PATIENT PROCESS FLOWS ---
+SOP for handling Niva Bupa patients across Health Partner/RM, Nutrition, Physio, and Mental Wellness workflows.
+
+HEALTH PARTNER / RM PROCESS (HAPPY FLOW):
+1. Patient enrolls in the Care Plan.
+2. Health Partner attempts Welcome Call within 2 business hours.
+3. If patient picks up: Greet and explain the program to start the journey → Health Partner assists patient to book Diagnostics if needed → Take appointments for Health Coaches → Health Partner connects weekly with patients to ensure smooth experience and improve adherence.
+4. If patient does not pick up: Call back with maximum 5 attempts with a gap of 3 hours between two calls. If still no response: patient is marked Inactive and handed over to support team for further intervention.
+5. Ongoing support and guidance provided via WhatsApp chat throughout the journey.
+
+NUTRITION COACH PROCESS:
+1. Appointment booked with Nutrition Coach.
+2. Nutrition Coach calls patient for consultation (3 attempts in 3 days).
+3. First consultation: Introduction, Health Assessment, Diet habits and current lifestyle understanding.
+4. Nutrition Coach prepares the diet plan based on provided details.
+5. Diet plan shared within 24–48 business hours.
+6. Diet plan explanation message or call from Coach in next 2–3 days of plan share.
+7. Patient follows the diet plan for next 30 days. Weekly educational and diet-related messages shared.
+8. 2nd Consultation booked → Coach calls as per appointment (3 attempts in 3 days) → revised plan shared based on 2nd consultation details.
+9. Cycle repeats every month based on plan duration. Ongoing support via in-app chat.
+
+PHYSIO COACH PROCESS:
+1. Appointment booked with Physio Coach.
+2. Physio Coach connects with patient via video call for consultation (3 attempts in 3 days).
+3. First consultation: Health History, Physical Examination, Strength Analysis.
+4. Physio Coach prepares the exercise plan based on provided details.
+5. Exercise plan shared within 24–48 business hours.
+6. Physio plan follow-up message or call from Coach in next 2–3 days of plan share.
+7. Patient follows the physio plan for next 3 months. Weekly educational and exercise-related messages shared.
+8. 2nd Consultation booked → video consultation (3 attempts in 3 days) → revised physio plan shared.
+9. Cycle repeats every 3 months based on plan duration. Ongoing support via in-app chat.
+
+MENTAL WELLNESS COACH PROCESS:
+1. Appointment booked with Mental Wellness Coach.
+2. Coach connects with patient via video call for consultation (3 attempts in 3 days).
+3. Thorough assessment by Mental Wellness Coach to understand patient's condition.
+4. Wellness plan prepared based on provided details.
+5. Wellness plan shared within 24–48 business hours.
+6. Patient follows the wellness plan for next 30 days. Weekly educational messages shared.
+7. 2nd Consultation booked → video consultation (3 attempts in 3 days) → revised wellness plan shared.
+8. Cycle repeats every month up to defined time period. Ongoing support via in-app chat.
+
+UNHAPPY FLOW (INACTIVE PATIENTS):
+Case 1 — Patient did not pick up/respond to any RM calls (post 5 attempts):
+- Patient marked as Inactive → Support team calls to activate the patient (3 attempts in next 7 business days) → If still no pick up: reported to Niva Team.
+Case 2 — Patient did not respond to Health Coach calls (post 3 attempts):
+- Health Coaches mark patient as Inactive → Support team tries to connect and reschedule the appointment with Health Coach (3 attempts in next 7 business days) → If still no pick up: reported to Niva Team.
+
+KEY NIVA BUPA SOP TATs:
+- Welcome call: within 2 business hours of enrollment
+- RM callback attempts: max 5, with 3-hour gaps
+- Coach consultation attempts: 3 attempts in 3 days
+- Plan sharing (diet/exercise/wellness): within 24–48 business hours
+- Plan explanation follow-up: 2–3 days after plan share
+- Support team activation attempts: 3 attempts in 7 business days
+
+--- SECTION: MYSAATHI CARE PLAN (SEMAGLUTIDE PROGRAM) ---
+MySaathi is the operational program for Semaglutide (weight loss injection) patients. Drug brands covered: Semaglyn, Alterme, Mashema (all Zydus Semaglutide Injection 15 mg/3 mL, subcutaneous use).
+
+OPERATIONAL FLOW (Doctor QR scan to first coach call):
+1. Lead Capture: Doctor QR Scan → Landing Page Registration → App Download
+2. Validation: Invoice Upload → Ops Verification
+   - If invoice is rejected: user enters 'Validation Pending' queue for manual outreach
+3. Activation: Plan Assignment → Coach Assignment (Round-Robin)
+4. Logistics: Welcome Kit Dispatch (BCA, Info Manual, Protein)
+5. App Engagement: Food Logging, PPG Scan, and Kaira Assistant
+6. Retention: Fortnightly 'Sema Care Navigator' calls for inactive users
+7. Customer Support: Existing GoodFlip customer team handles support
+
+RESPONSIBILITIES:
+Surbhi, Aditya Anand and Vijaya are responsible for: Invoice verification, plan assignment, coach assignment, Welcome kit dispatch, Program adherence.
+
+PROGRAM DURATION: Each patient stays in the system for exactly 4 months. Active Load = current month's new sign-ups + previous three months' cohorts.
+
+COACHING SESSIONS:
+- Months 1–2: 4 sessions total per month (2 Diet + 2 Physio per month)
+- Months 3–4: 2 sessions total per month (1 Diet + 1 Physio per month)
+
+COACHES FLOW RULES:
+1. No proactive calls done to the user
+2. Coach will only join the session during the slot time
+3. Coaches will make 2 calls within the slot if the patient does not join the session
+4. No follow-up explanatory call
+
+KEY KPIs:
+- Verification TAT: Target under 2 hours from invoice upload to plan assignment
+- Care Navigator Efficacy: % of 'Inactive' users moved back to 'Active' after the fortnightly call
+
+OPERATION TEAM AVAILABILITY:
+- Monday to Saturday: 8 AM – 7 PM
+- Sunday and Holidays: 8 AM – 4 PM (operational from 10th April)
+
+WELCOME KIT COMBOS:
+1. MySaathi Tool Kit = BCA + Welcome Card + Lifestyle Companion Card + Weight Loss Card + GRD + Youthbless
+   Note: Till May end, GRD & Youthbless cream not available (supplied by Zydus for fulfillment) — make SKU accordingly.
+2. MySaathi Tool Kit Follow-up Box = Follow-up Card + GRD + Youthbless cream
+   Note: Follow-up box for sending GRD + Youthbless cream once received from Zydus.
+
+WELCOME KIT TRACKING:
+Patient welcome kit details can be checked on the MySaathi dashboard by searching the patient name in the search box of the 2nd module: https://mysaathi-dashboard.vercel.app/ (login credentials available with the ops team — Kirti Gautam).
+
+PROTEIN SAMPLE: GRD Slim (Zydus) — Meal replacement for weight control. Chocolate flavour, 60g pack. High protein (24.66g), Rich fiber (13.26g), 26 essential vitamins & minerals, probiotic boost, zero added sugar. Recommended usage: 60g powder daily (pour 250ml water in shaker, add 60g powder, shake thoroughly).
 `;
 
 // ============ RAG-LITE: SECTION RETRIEVAL ============
@@ -504,7 +604,13 @@ const SYNONYMS = {
   niva: ["bupa"],
   bupa: ["niva"],
   goodflip: ["gf", "care plans"],
-  mysaathi: ["saathi"],
+  mysaathi: ["saathi", "semaglutide", "sema"],
+  semaglutide: ["mysaathi", "sema", "semaglyn", "alterme", "mashema"],
+  sema: ["mysaathi", "semaglutide", "navigator"],
+  kit: ["welcome", "combo", "dispatch"],
+  welcome: ["kit", "combo", "dispatch"],
+  invoice: ["verification", "validation", "upload"],
+  navigator: ["sema", "retention", "inactive"],
   sla: ["support", "hours", "tat", "escalation"],
   hours: ["sla", "support", "operating"],
   test: ["tests", "diagnostics", "included"],
